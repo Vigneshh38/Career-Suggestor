@@ -13,7 +13,9 @@ app.use(express.static(__dirname));
 app.get('/get-questions', (req, res) => {
     res.json(QUESTIONS);
 });
-
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 // Submit answers
 app.post('/submit-answers', (req, res) => {
     const data = req.body;
